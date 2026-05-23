@@ -1,0 +1,9 @@
+services:
+  scanner:
+    build: .
+    volumes:
+      # Change /Volumes/ExternalDrive to your actual drive path on macOS
+      - /Volumes:/mnt/external:ro
+      # Map current directory to get the output file
+      - .:/app
+    command: --input /mnt/external --output /app/scan_results.txt
